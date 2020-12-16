@@ -5,4 +5,5 @@ export const createColors = () => ({
   ...primary,
   ...secondary,
   black: '#282828',
+  white: '#fff',
 });
