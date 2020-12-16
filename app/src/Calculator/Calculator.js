@@ -7,11 +7,15 @@ import { leftPanel } from './leftPanel';
 import { rightPanel } from './rightPanel';
 
 export const Calculator = ({ classes }) => {
-  const [stack, setStack] = useState([0, 0]);
+  const [stack, setStack] = useState([]);
   const [currentValue, setCurrentValue] = useState(0);
 
+  const onClick = (callback) => {
+    callback({ stack, setStack, currentValue, setCurrentValue });
+  };
+
   const buildButtonPanel = (panelCols) => (
-    panelCols.map(obj => <BaseButton key={obj.value} {...obj} />)
+    panelCols.map(obj => <BaseButton key={obj.value} {...obj} onClick={() => onClick(obj.onClick)} />)
   );
 
   const buildButtonPanelRows = (panelRows) => (
@@ -29,7 +33,7 @@ export const Calculator = ({ classes }) => {
       <Stack values={stack} />
       <div className={classes.container}>
         <div className={classes.header}>
-          <div className={classes.currentValue}>0</div>
+          <div className={classes.currentValue}>{currentValue}</div>
           <Divider />
           <div>
             {buildButtonPanel(headerPanel)}

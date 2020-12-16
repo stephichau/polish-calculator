@@ -1,26 +1,49 @@
 export const headerPanel = [
   {
     value: '+',
-    onClick: () => {},
+    onClick: ({ stack, currentValue, setCurrentValue}) => {
+      if (!stack.length) return;
+
+      const result = stack.shift() + currentValue;
+
+      setCurrentValue(result);
+    },
   },
   {
     value: '-',
-    onClick: () => {},
+    onClick: ({ stack, currentValue, setCurrentValue}) => {
+      if (!stack.length) return;
+
+      const result = stack.shift() - currentValue;
+
+      setCurrentValue(result);
+    },
   },
   {
     value: 'x',
-    onClick: () => {},
+    onClick: ({ stack, currentValue, setCurrentValue}) => {
+      if (!stack.length) return;
+
+      const result = stack.shift() * currentValue;
+
+      setCurrentValue(result);
+    },
   },
   {
     value: '/',
-    onClick: () => {},
-  },
-  {
-    value: '<-',
-    onClick: () => {},
+    onClick: ({ stack, currentValue, setCurrentValue}) => {
+      if (!stack.length) return;
+
+      const result = stack.shift() / currentValue;
+
+      setCurrentValue(result);
+    },
   },
   {
     value: 'enter',
-    onClick: () => {},
+    onClick: ({ stack, setStack, currentValue, setCurrentValue }) => {
+      setStack([...stack, currentValue]);
+      setCurrentValue(0);
+    },
   },
 ];

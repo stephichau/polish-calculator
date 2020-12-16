@@ -3,35 +3,58 @@ import { rowBuilder } from '../helpers';
 const buttons = [
   {
     value: 'c',
-    onClick: () => {},
+    onClick: ({ setCurrentValue }) => {
+      setCurrentValue(0);
+    },
   },
   {
     value: 'ac',
-    onClick: () => {},
+    onClick: ({ setStack, setCurrentValue }) => {
+      setStack([]);
+      setCurrentValue(0);
+    },
   },
   {
     value: 'x2',
-    onClick: () => {},
+    onClick: ({ currentValue, setCurrentValue }) => {
+      setCurrentValue(Math.pow(currentValue, 2))
+    },
   },
   {
     value: 'x3',
-    onClick: () => {},
+    onClick: ({ currentValue, setCurrentValue }) => {
+      setCurrentValue(Math.pow(currentValue, 3))
+    },
   },
   {
     value: 'sqrt',
-    onClick: () => {},
+    onClick: ({ currentValue, setCurrentValue }) => {
+      setCurrentValue(Math.pow(currentValue, .5))
+    },
+  },
+  {
+    value: 'chs',
+    onClick: ({ currentValue, setCurrentValue }) => {
+      setCurrentValue(currentValue * -1);
+    },
   },
   {
     value: 'sin',
-    onClick: () => {},
+    onClick: ({ currentValue, setCurrentValue }) => {
+      setCurrentValue(Math.sin(currentValue));
+    },
   },
   {
     value: 'cos',
-    onClick: () => {},
+    onClick: ({ currentValue, setCurrentValue }) => {
+      setCurrentValue(Math.cos(currentValue));
+    },
   },
   {
     value: '1/x',
-    onClick: () => {},
+    onClick: ({ currentValue, setCurrentValue }) => {
+      if (currentValue) setCurrentValue(1/currentValue)
+    },
   },
 ];
 
