@@ -1,4 +1,8 @@
 export const styles = theme => ({
+  wrapper: {
+    marginTop: theme.spacing(7),
+  },
+
   container: {
     padding: theme.spacing(5),
     backgroundColor: '#D3D3D3',

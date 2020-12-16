@@ -20,7 +20,7 @@ export const headerPanel = [
     onClick: () => {},
   },
   {
-    value: 'up',
+    value: 'enter',
     onClick: () => {},
   },
 ];
