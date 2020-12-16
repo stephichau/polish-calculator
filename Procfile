@@ -1,5 +1,5 @@
 {
   "scripts": {
-    "start": "node server.js"
+    "start": "cd app && yarn start"
   }
 }
