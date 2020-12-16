@@ -1,19 +1,12 @@
 import React from 'react';
+import { withStyles } from '@material-ui/core/styles';
+import Calculator from './Calculator';
+import { styles } from './styles';
 
-export const App = () => (
-  <div className="App">
-    <header className="App-header">
-      <p>
-        Edit <code>src/App.js</code> and save to reload.
-      </p>
-      <a
-        className="App-link"
-        href="https://reactjs.org"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        Learn React
-      </a>
-    </header>
+const App = ({ classes }) => (
+  <div className={classes.container}>
+    <Calculator />
   </div>
 );
+
+export default withStyles(styles)(App);

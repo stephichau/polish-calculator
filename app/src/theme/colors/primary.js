@@ -1,5 +1,5 @@
 export const primary = ({
-  primary: '#00695f',
-  primaryLighter: '#009688',
-  primaryLightest: '#33ab9f',
+  main: '#00695f',
+  light: '#009688',
+  lightest: '#33ab9f',
 });

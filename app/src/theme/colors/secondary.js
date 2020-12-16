@@ -1,5 +1,5 @@
 export const secondary = ({
-  secondary: '#a73a38',
-  secondaryLighter: '#ef5350',
-  secondaryLightest: '#f27573',
+  main: '#A73A38',
+  lighy: '#EF5350',
+  lightest: '#F27573',
 });
