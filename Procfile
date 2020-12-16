@@ -1,5 +1,1 @@
-{
-  "scripts": {
-    "start": "cd app && yarn start"
-  }
-}
+web: yarn start
