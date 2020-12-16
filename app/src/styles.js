@@ -1,6 +1,6 @@
 export const styles = theme => ({
   container: {
-    maxWidth: 460,
+    maxWidth: 560,
     margin: theme.spacing('auto', 'auto'),
   },
 });

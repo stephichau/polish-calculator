@@ -1,6 +1,7 @@
 export const styles = theme => ({
   wrapper: {
     marginTop: theme.spacing(7),
+    display: 'flex',
   },
 
   container: {

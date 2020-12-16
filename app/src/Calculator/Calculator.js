@@ -8,10 +8,17 @@ import { rightPanel } from './rightPanel';
 
 export const Calculator = ({ classes }) => {
   const [stack, setStack] = useState([]);
-  const [currentValue, setCurrentValue] = useState(0);
+  const [currentValue, setCurrentValue] = useState('');
 
   const onClick = (callback) => {
-    callback({ stack, setStack, currentValue, setCurrentValue });
+    callback({
+      stack, setStack,
+      rawCurrentValue: currentValue,
+      currentValue: parseFloat(currentValue, 10),
+      setCurrentValue: (val) => {
+        setCurrentValue(`${val}`);
+      },
+    });
   };
 
   const buildButtonPanel = (panelCols) => (
@@ -30,10 +37,9 @@ export const Calculator = ({ classes }) => {
 
   return (
     <div className={classes.wrapper}>
-      <Stack values={stack} />
       <div className={classes.container}>
         <div className={classes.header}>
-          <div className={classes.currentValue}>{currentValue}</div>
+          <div className={classes.currentValue}>{currentValue || '0'}</div>
           <Divider />
           <div>
             {buildButtonPanel(headerPanel)}
@@ -44,6 +50,10 @@ export const Calculator = ({ classes }) => {
           <div>{buildButtonPanelRows(leftPanel)}</div>
           <div>{buildButtonPanelRows(rightPanel)}</div>
         </div>
+      </div>
+      <div>
+        <p>Stack:</p>
+        <Stack values={stack} />
       </div>
     </div>
   )

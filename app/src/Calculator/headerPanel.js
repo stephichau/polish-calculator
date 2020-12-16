@@ -32,7 +32,7 @@ export const headerPanel = [
   {
     value: '/',
     onClick: ({ stack, currentValue, setCurrentValue}) => {
-      if (!stack.length) return;
+      if (!(stack.length && currentValue)) return;
 
       const result = stack.shift() / currentValue;
 
@@ -40,10 +40,18 @@ export const headerPanel = [
     },
   },
   {
+    value: '<-',
+    onClick: ({ rawCurrentValue, setCurrentValue }) => {
+      if (!rawCurrentValue.length) return;
+
+      setCurrentValue(rawCurrentValue.slice(0, rawCurrentValue.length - 1))
+    },
+  },
+  {
     value: 'enter',
     onClick: ({ stack, setStack, currentValue, setCurrentValue }) => {
-      setStack([...stack, currentValue]);
-      setCurrentValue(0);
+      setStack([currentValue, ...stack]);
+      setCurrentValue('');
     },
   },
 ];
