@@ -24,7 +24,7 @@ export const Calculator = ({ classes }) => {
   return (
     <div className={classes.container}>
       <div className={classes.header}>
-        <div>Input</div>
+        <div className={classes.currentValue}>0</div>
         <Divider />
         <div>
           {buildButtonPanel(headerPanel)}
