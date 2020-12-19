@@ -2,5 +2,9 @@
   "scripts": {
     "heroku-prebuild": "cd app && yarn install && yarn build",
     "start": "cd app && yarn start"
+  },
+  "engines": {
+    "node": ">=12.6.0",
+    "yarn": ">=1.22.4"
   }
 }
